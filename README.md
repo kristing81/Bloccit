@@ -3,6 +3,8 @@
 
 Made with my mentor at [Bloc](http://bloc.io).
 
+Visit the deployed app on [Heroku](http://kristingonzalez-bloccit.herokuapp.com/).
+
 * Ruby version 2.1.2
 
 * System dependencies
