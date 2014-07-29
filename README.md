@@ -9,6 +9,9 @@ Visit the deployed app on [Heroku](http://kristingonzalez-bloccit.herokuapp.com/
 
 * System dependencies
 
+* Setup
+  Pleae reference config/application.yml
+
 * Configuration
 
 * Database creation
