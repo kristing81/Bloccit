@@ -1,6 +1,6 @@
-<%= simple_form_for [topic, post] do |f| %>
-    <%= f.input :title, class: "form-control", placeholder: "Enter post title" %>
-    <%= f.input :body, rows: 8, class: "form-control", placeholder: "Enter post body"%>
+<%= simple_form_for [topic, post], html: { class: 'form-vertical' }  do |f| %>
+    <%= f.input :title, placeholder: "Enter post title" %>
+    <%= f.input :body, placeholder: "Enter post body"%>
     <%= f.button :submit, class: 'btn btn-success' %>  
 <% end %>
 
