@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def update
-    if current_user.update_attribures(user_params)
-      flash [:notice]="User information updated"
+    if current_user.update_attributes(user_params)
+      flash[:notice]="User information updated"
       redirect_to edit_user_registration_path
     else
       render "devise/registrations/edit"
@@ -13,6 +13,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :avatar)
   end
 end
