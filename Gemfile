@@ -49,6 +49,7 @@ gem 'figaro'
 
 gem 'pundit'
 
+<<<<<<< HEAD
 gem 'redcarpet'
 
 gem 'carrierwave'
@@ -56,6 +57,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'fog'
+=======
+gem 'simple_form', github: 'plataformatec/simple_form'
+>>>>>>> simple-form
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
