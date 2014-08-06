@@ -4,10 +4,10 @@
   <div class="col-md-8">
     <small>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
-      <%= image_tag(@post.user.image.tiny.url) if @post.user.image? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by
     </small>
     <p><%= markdown @post.body %></p>
+    <p><%= image_tag (@post.image_url) if @post.image? %></p>
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
