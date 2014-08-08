@@ -2,8 +2,7 @@
     <%= f.input :title, placeholder: "Enter post title" %>
     <%= f.input :body, placeholder: "Enter post body"%>
     <%= f.button :submit, class: 'btn btn-success' %>  
-    <%= f.submit "Save", class: 'btn btn-success' %>
-    <%= f.input :image, placeholder: "Upload image" %>
+    <%= f.input :image, required: false, placeholder: "Upload image" %>
 <% end %> 
 
 

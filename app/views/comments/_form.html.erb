@@ -1,0 +1,4 @@
+<%= simple_form_for [topic, post, comment], html: { class: 'form-vertical' }  do |f| %>
+  <%= f.input :body, required: false, placeholder: "Add comment" %>
+  <%= f.button :submit, class: 'btn btn-success' %>
+<% end %> 

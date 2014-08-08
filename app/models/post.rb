@@ -1,8 +1,8 @@
 class Post < ActiveRecord::Base
-attr_accessor :title, :topic, :body, :image
+
   has_many :comments
   belongs_to :user
-    belongs_to :topic
+  belongs_to :topic
   
   mount_uploader :image, ImageUploader
 
@@ -12,5 +12,5 @@ attr_accessor :title, :topic, :body, :image
   validates :body, length: {minimum: 20}, presence: true
   validates :topic, presence: true
   validates :user, presence: true
-  validates :image, presence: true
+
 end

@@ -7,10 +7,14 @@ module ApplicationHelper
     end
   end
 
- def markdown(text)
-  renderer = Redcarpet::Render::HTML.new
-  extensions = {fenced_code_blocks: true}
-  redcarpet = Redcarpet::Markdown.new(renderer, extensions)
-  (redcarpet.render text).html_safe
+  def markdown(text)
+    if text.blank?
+      nil
+    else
+      renderer = Redcarpet::Render::HTML.new
+      extensions = {fenced_code_blocks: true}
+      redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+      (redcarpet.render text).html_safe
+    end
   end
 end
