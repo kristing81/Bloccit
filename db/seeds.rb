@@ -30,6 +30,7 @@
      body:   Faker::Lorem.paragraph
    )
    post.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
+   post.create_vote
    post.update_rank
  end
  posts = Post.all
