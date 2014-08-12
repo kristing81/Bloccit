@@ -40,7 +40,7 @@ class ApplicationPolicy
 
   private
 
-  def can_moderate?(user, record)
+  def can_moderate?
     user.present? && (record.user == user || user.role?(:admin) || user.role?(:moderator))
   end
 end
