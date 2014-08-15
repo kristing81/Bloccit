@@ -12,7 +12,7 @@
     <hr/>
   </div>
   <h4><%= @comments.count %>Comments</h4>
-    <%= render @comments %>
+    <%= render partial: 'comments/comment', collection: @comments %>
    
   <% if policy(Comment.new).create? %>
       <h4>New Comment</h4>
