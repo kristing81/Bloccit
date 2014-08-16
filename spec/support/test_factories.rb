@@ -1,6 +1,6 @@
 module TestFactories
   def associated_post(options={})
-  post_options = {
+    post_options = {
     title: 'Post title',
     body: 'Post bodies must be pretty long.',
     topic: Topic.create(name: 'Topic name'),

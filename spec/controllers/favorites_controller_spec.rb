@@ -23,10 +23,10 @@ describe FavoritesController do
 
   describe '#destroy' do
     it "destroys the favorite for the current user and post" do
-      favorite = @user.favorites.where.(post: @post).create
+      favorite = @user.favorites.where(post: @post).create
       expect( @user.favorites.find_by_post_id(@post.id).class ).to eq(Favorite)
 
-      delete :destroy, { post_id: @post.id }
+      delete :destroy, { post_id: @post.id, id: favorite.id }
 
       expect( @user.favorites.find_by_post_id(@post.id) ).to eq(nil)
     end
