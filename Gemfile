@@ -61,6 +61,8 @@ gem 'simple_form', github: 'plataformatec/simple_form'
 
 gem 'will_paginate', '~> 3.0.5'
 
+gem 'newrelic_rpm'
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
