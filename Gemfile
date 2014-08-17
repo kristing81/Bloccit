@@ -4,15 +4,31 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.5'
 
 # Use sqlite3 as the database for Active Record
- group :production do
-   gem 'pg'
-   gem 'rails_12factor'
-   gem 'unicorn'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'unicorn'
  end
  
- group :development do
-   gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'thin'
  end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'launchy'
+  gem 'database_cleaner'
+end
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -37,11 +53,6 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
 gem 'faker'
 
 gem 'devise'
@@ -64,18 +75,6 @@ gem 'will_paginate', '~> 3.0.5'
 
 gem 'newrelic_rpm'
 
-group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
-  gem 'thin'
-end
-
-group :test do
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'factory_girl_rails'
-  gem 'launchy'
-end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

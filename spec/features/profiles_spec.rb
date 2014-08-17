@@ -1,17 +1,15 @@
 require 'rails_helper'
 
 describe "Visiting profiles" do
-  
-  include TestFactories
+
   include Warden::Test::Helpers
-  
 
   before do
     Warden.test_mode!
-    @admin = authenticated_user(role: 'admin')
-    @user = authenticated_user
-    @post = associated_post(user: @user)
-    @comment = comment_without_email(user: @user, post: @post)
+    @admin = create(:user, role: 'admin')
+    @user = create(:user)
+    @post = create(:post, user: @user)
+    @comment = create(:comment, post: @post, user: @user)
   end
 
   after do
@@ -33,7 +31,7 @@ describe "Visiting profiles" do
   describe "admin visits user" do
 
     it "shows profile" do
-      login_as(@admin, :scope => :user)
+      login_as(@admin, scope: :user)
       visit user_path(@user)
       expect(current_path).to eq(user_path(@user))
       expect( page ).to have_content(@user.name)

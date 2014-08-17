@@ -8,8 +8,16 @@ class Post < ActiveRecord::Base
   
   mount_uploader :image, ImageUploader
 
+  default_scope { order('rank DESC')}
+    scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
+
+  validates :title, length: {minimum: 5}, presence: true
+  validates :body, length: {minimum: 20}, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
+
   def up_votes
-    votes.where(value: 1).count  
+    votes.where(value: 1).count
   end
 
   def down_votes
@@ -19,14 +27,6 @@ class Post < ActiveRecord::Base
   def points
     votes.sum(:value).to_i
   end
-
-  default_scope { order('rank DESC')}
-    scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
-
-  validates :title, length: {minimum: 5}, presence: true
-  validates :body, length: {minimum: 20}, presence: true
-  validates :topic, presence: true
-  validates :user, presence: true
 
   def update_rank
     age = (created_at - Time.new(1970,1,1))/(60 * 60 * 24)
