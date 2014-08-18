@@ -11,9 +11,8 @@
     <p><%= image_tag(@post.image_url) if @post.image? %></p>
     <hr/>
   </div>
-  <h4><%= @comments.count %>Comments</h4>
+  <h4><%= @comments.count %> Comments</h4>
     <%= render partial: 'comments/comment', collection: @comments %>
-   
   <% if policy(Comment.new).create? %>
       <h4>New Comment</h4>
       <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
