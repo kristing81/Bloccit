@@ -25,10 +25,13 @@ describe Post do
   end
     describe '#create_vote' do
       it "generates an up-vote when explicitly called" do
-        expect( @post.up_votes ).to eq(0)
-        @post.create_vote
-        expect( @post.up_votes ).to eq(1)
-      end
-    end
+        user = create(:user)
+        post = create(:post, user: user)
+        expect( post.up_votes ).to eq(0)
+        post.create_vote
+       expect( post.up_votes ).to eq(1)
+     end
+   end
+
   end
 

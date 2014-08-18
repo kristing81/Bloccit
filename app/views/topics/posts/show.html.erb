@@ -9,15 +9,21 @@
 
     <p><%= markdown @post.body %></p>
     <p><%= image_tag(@post.image_url) if @post.image? %></p>
-    <hr/>
-  </div>
-  <h4><%= @comments.count %> Comments</h4>
-    <%= render partial: 'comments/comment', collection: @comments %>
-  <% if policy(Comment.new).create? %>
-      <h4>New Comment</h4>
-      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
-    <% end %>
-    <hr/>
+    
+  
+    <h2 class="js-comments-count"><%= @comments.count %> Comments</h2>
+      <div class="js-comments">
+        <%= render partial: 'comments/comment', collection: @comments, locals: {topic: @topic, post: @post} %>
+      </div>
+      <div class="new-comment">
+        <% if policy(@comment).create? %>
+          <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+        <% else %>
+          <small>You must sign in to comment on this post.</small>
+        <% end %>
+      </div>
+    </div>
+
   <div class="col-md-4">
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
