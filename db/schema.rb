@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140812033626) do
   create_table "votes", force: true do |t|
     t.integer  "value"
     t.integer  "user_id"
-    t.string   "post_id"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
