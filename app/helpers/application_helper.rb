@@ -5,7 +5,7 @@ module ApplicationHelper
     else
       content_tag :div, capture(&block), class: 'form-group'  
     end
-  end
+  endD
 
   def markdown(text)
     if text.blank?
@@ -17,4 +17,4 @@ module ApplicationHelper
       (redcarpet.render text).html_safe
     end
   end
-end
+
